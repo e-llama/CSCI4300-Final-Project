@@ -52,6 +52,25 @@ function blueBG() {
 // Part 3: Create a Dynamic List
 //----------------------------------------------
 
+//-------------
+//expand
+//-------------
+
+function expandButton(parent) {
+    var expandBtn = parent.appendChild(document.createElement("button"));
+    expandBtn.innerHTML = "expand";
+    expandBtn.setAttribute("class","expand-btn");
+}
+
+function deleteButton(parent) {
+    var deleteBtn = parent.appendChild(document.createElement("button"));
+    deleteBtn.innerHTML = "Delete";
+    deleteBtn.setAttribute("class","expand-btn");
+
+    deleteBtn.onclick = function() {
+        this.parentElement.remove();
+    }}
+
 //buttons and input box variables
 var userInput = document.querySelector("#usrInput");
 var inputButton = document.querySelector("#addBtn");
@@ -69,6 +88,9 @@ function addList() {
     node.setAttribute("class", "flex-item");
 
     node.appendChild(document.createTextNode(input));
-    
+
+    expandButton(node);
+    deleteButton(node);
+
     inputList.appendChild(node);
 }
