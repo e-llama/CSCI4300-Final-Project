@@ -60,16 +60,35 @@ function expandButton(parent) {
     var expandBtn = parent.appendChild(document.createElement("button"));
     expandBtn.innerHTML = "expand";
     expandBtn.setAttribute("class","expand-btn");
+    expandBtn.setAttribute("class", "collapsible");
 }
 
 function deleteButton(parent) {
     var deleteBtn = parent.appendChild(document.createElement("button"));
-    deleteBtn.innerHTML = "Delete";
+    deleteBtn.innerHTML = "delete";
     deleteBtn.setAttribute("class","expand-btn");
 
     deleteBtn.onclick = function() {
         this.parentElement.remove();
     }}
+
+
+function collapse() {
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+                if (content.style.maxHeight){
+                    content.style.maxHeight = null;
+                } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+            } 
+        });
+    }
+}
 
 //buttons and input box variables
 var userInput = document.querySelector("#usrInput");
@@ -87,10 +106,21 @@ function addList() {
     var node = document.createElement("li");
     node.setAttribute("class", "flex-item");
 
+    var p = document.createElement("p");
+    p.innerHTML = "Lorem ipsum dolor sit amet, "
+    + "consectetur adipisicing elit, sed do eiusmod tempor"
+    + "incididunt ut labore et dolore magna aliqua. Ut enim "
+    + "ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo";
+    
+    p.setAttribute("class", "content");
+
     node.appendChild(document.createTextNode(input));
 
     expandButton(node);
+    node.appendChild(p);
     deleteButton(node);
 
     inputList.appendChild(node);
+    collapse();
 }
+collapse();
