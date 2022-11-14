@@ -117,6 +117,22 @@ var inputList = document.querySelector("#myUL");
 //add eventlistener
 inputButton.addEventListener("click", addList);
 
+//login function APPEARANCE ONLY
+function logInFunction() {
+    document.getElementById("login_form").setAttribute("class", "loggedIn");
+    var ln = document.createElement("p");
+    ln.innerHTML = "Welcome, user!";
+    //document.getElementById("login").innerHTML = "logout";
+    //document.getElementById("header_bar").setAttribute("");
+    if (document.getElementById("login").innerHTML == "logout") {
+        document.getElementById("login").innerHTML = "login";
+    }
+
+    if (document.getElementById("login").innerHTML == "login") {
+        document.getElementById("login").innerHTML = "logout";
+    }
+}
+
 //add to list function
 function addList() {
     let input = userInput.value;
