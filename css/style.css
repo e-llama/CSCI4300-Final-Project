@@ -136,21 +136,8 @@ ul li:hover {
   padding: 30px 40px;
   color: white;
   text-align: center;
-  background-color: lightblue; 
+  background-color: rgb(122, 164, 162); 
   height: 120px;
-}
-#div_greet {
-  padding: 30px 40px;
-  color: white;
-  text-align: center;
-  background-color:cadetblue; 
-  height: 150px;
-}
-#div_color {
-  padding: 30px 40px;
-  color: white;
-  text-align: center;
-  height: 150px;
 }
 
 
