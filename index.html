@@ -3,6 +3,9 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
 <body>
 
@@ -15,8 +18,23 @@
       
       <img src="images/password_icon.png" class="icon">
       <input type="text" name="item" id="password" placeholder="************">
-      <button id="login" class="btn">login</button>
+      <button id="login" class="btn">Login</button>
     </form>
+    <div id="dialog" title="Create new user" style="display:none;">
+        <p class="validateTips">All form fields are required.</p>
+        <form action='tuscript.php'>
+          <fieldset>
+            <label for="name">Name:</label><br>
+            <input type="text" name="name" id="name" class="text"><br>
+            <label for="email">Email:</label><br>
+            <input type="text" name="email" id="email" value="" class="text"><br>
+            <label for="password">Password:</label><br>
+            <input type="password" name="password" id="password" value="" class="text">
+          </fieldset>
+        </form>
+      </div>
+      <button id="signUp" class="btn" onclick='signUp()'>Sign Up</button>
+
 </div>
 
 <!-- 
