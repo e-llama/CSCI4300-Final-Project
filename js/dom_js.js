@@ -61,11 +61,25 @@ function signUp() {
     $("#dialog").dialog();
 }
 
+var num = 0;
+
 function expandButton(parent) {
     var expandBtn = parent.appendChild(document.createElement("button"));
     expandBtn.innerHTML = "expand";
     expandBtn.setAttribute("class","expand-btn");
     expandBtn.setAttribute("class", "collapsible");
+    expandBtn.setAttribute("id", num);
+    num++;
+    expandBtn.addEventListener("click", function() {
+        // alert(this.id);
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+            if (content.style.maxHeight){
+                content.style.maxHeight = null;
+            } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+        }
+    }); 
 }
 
 function deleteButton(parent) {
@@ -78,22 +92,22 @@ function deleteButton(parent) {
     }}
 
 
-function collapse() {
-    var coll = document.getElementsByClassName("collapsible");
-    var i;
+// function collapse() {
+//     var coll = document.getElementsByClassName("collapsible");
+//     var i;
 
-    for (i = 0; i < coll.length; i++) {
-        coll[i].addEventListener("click", function() {
-            this.classList.toggle("active");
-            var content = this.nextElementSibling;
-                if (content.style.maxHeight){
-                    content.style.maxHeight = null;
-                } else {
-                content.style.maxHeight = content.scrollHeight + "px";
-            } 
-        });
-    }
-}
+//     for (i = 0; i < coll.length; i++) {
+//         coll[i].addEventListener("click", function() {
+//             this.classList.toggle("active");
+//             var content = this.nextElementSibling;
+//                 if (content.style.maxHeight){
+//                     content.style.maxHeight = null;
+//                 } else {
+//                 content.style.maxHeight = content.scrollHeight + "px";
+//             } 
+//         });
+//     }
+// }
 
 //buttons and input box variables
 var userInput = document.querySelector("#usrInput");
@@ -126,6 +140,5 @@ function addList() {
     deleteButton(node);
 
     inputList.appendChild(node);
-    collapse();
+//     collapse();
 }
-collapse();
