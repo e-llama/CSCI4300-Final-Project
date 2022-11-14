@@ -56,6 +56,11 @@ function blueBG() {
 //expand
 //-------------
 
+//sign up button popup
+function signUp() {
+    $("#dialog").dialog();
+}
+
 function expandButton(parent) {
     var expandBtn = parent.appendChild(document.createElement("button"));
     expandBtn.innerHTML = "expand";
