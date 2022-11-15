@@ -5,11 +5,9 @@
 //buttons
 var amButton = document.getElementById("am");
 var pmButton = document.getElementById("pm");
-
 //add eventlistener
 amButton.addEventListener("click", changeAM);
 pmButton.addEventListener("click", changePM);
-
 //AM/PM button eventlistener functions
 function changeAM() {
     document.getElementById("greeting").innerHTML = "Good Morning!";
@@ -17,23 +15,19 @@ function changeAM() {
 function changePM() {
     document.getElementById("greeting").innerHTML = "Good Night!";
 }
-
 //----------------------------------------------
 // Part 2: Switch the Background Color
 //----------------------------------------------
-
 //buttons
 var redButton = document.getElementById("red");
 var yellowButton = document.getElementById("yellow");
 var greenButton = document.getElementById("green");
 var blueButton = document.getElementById("blue");
-
 //add eventlistener
 redButton.addEventListener("click", redBG);
 yellowButton.addEventListener("click", yellowBG);
 greenButton.addEventListener("click", greenBG);
 blueButton.addEventListener("click", blueBG);
-
 //background color changing functions
 function redBG() {
     document.getElementById("div_color").setAttribute("class", "bg_red");
@@ -113,7 +107,6 @@ function deleteButton(parent) {
 var userInput = document.querySelector("#usrInput");
 var inputButton = document.querySelector("#addBtn");
 var inputList = document.querySelector("#myUL");
-
 var loginButton = document.getElementById("login");
 
 //add eventlistener
@@ -132,13 +125,13 @@ function logInFunction() {
     document.getElementById("login_form").appendChild(ln);
 
     document.getElementById("login_form").setAttribute("class", "loggedIn");
-    
+
     //document.getElementById("header_bar").setAttribute("");
-    if (document.getElementById("login").innerHTML == "logout") {
+    if (document.getElementById("login").innerHTML === "logout") {
         document.getElementById("login").innerHTML = "login";
     }
 
-    if (document.getElementById("login").innerHTML == "login") {
+    if (document.getElementById("login").innerHTML === "login") {
         document.getElementById("login").innerHTML = "logout";
     }
 }
@@ -150,7 +143,19 @@ function addList() {
 
     var node = document.createElement("li");
     node.setAttribute("class", "flex-item");
+    node.setAttribute("id", "node1");
 
+    var filler = document.createTextNode(input);
+    filler.contentEditable = "true";
+    //filler.setAttribute("class", "marginTen");
+
+    var inpot = document.createElement("p");
+    inpot.setAttribute("class", "marginTen");
+    inpot.contentEditable = "true";
+
+    //-------------------------------
+    // editable text box expandable
+    //-------------------------------
     var p = document.createElement("p");
     p.innerHTML = "Lorem ipsum dolor sit amet, "
     + "consectetur adipisicing elit, sed do eiusmod tempor"
@@ -158,9 +163,20 @@ function addList() {
     + "ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo";
     
     p.setAttribute("class", "content");
+    p.contentEditable = "true";
 
-    node.appendChild(document.createTextNode(input));
+    // test image
+    var img = document.createElement("img");
+    img.src = "images/image_filler.png";
+    img.setAttribute("class", "marginTen");
 
+    node.appendChild(img);
+
+    node.appendChild(filler);
+
+    if (input === '') {
+        node.appendChild(inpot);
+    }
     expandButton(node);
     node.appendChild(p);
     deleteButton(node);
