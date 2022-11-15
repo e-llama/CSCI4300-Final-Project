@@ -9,45 +9,50 @@
 </head>
 <body>
 
+
 <div id="header_bar">
-    <h2 id="app_name">Class Search</h2>
-    <form id="login_form">
+    <h2 id="app_name">classSearch</h2>
+    <form id="login_form" onsubmit="return false">
 
       <img src="images/username_icon.png" class="icon">
       <input type="text" name="item" id="username" placeholder="username">
       
       <img src="images/password_icon.png" class="icon">
       <input type="text" name="item" id="password" placeholder="************">
-      <button id="login" class="btn">Login</button>
+      
+      <button id="login" class="btn" onsubmit="loggedIn();">login</button>
+    
     </form>
-    <div id="dialog" title="Create new user" style="display:none;">
-        <p class="validateTips">All form fields are required.</p>
-        <form action='tuscript.php'>
-          <fieldset>
-            <label for="name">Name:</label><br>
-            <input type="text" name="name" id="name" class="text"><br>
-            <label for="email">Email:</label><br>
-            <input type="text" name="email" id="email" value="" class="text"><br>
-            <label for="password">Password:</label><br>
-            <input type="password" name="password" id="password" value="" class="text">
-          </fieldset>
-        </form>
-      </div>
-      <button id="signUp" class="btn" onclick='signUp()'>Sign Up</button>
 
+    <div id="dialog" title="Create new user" style="display:none;">
+      <p class="validateTips">All form fields are required.</p>
+      <form id="signup_form" action='tuscript.php'>
+        <fieldset>
+          <label for="name">name:</label><br>
+          <input type="text" name="name" id="name" class="text"><br>
+          <label for="email">email:</label><br>
+          <input type="text" name="email" id="email" value="" class="text"><br>
+          <label for="password">password:</label><br>
+          <input type="password" name="password" id="password" value="" class="text">
+        </fieldset>
+      </form>
+    </div>
+    <button id="signUp" class="btn" onclick='signUp()'>sign up</button>
+    
 </div>
 
-<!-- 
-<div id="header_loggedin">
-    <h2 id="app_name">Class Search</h2>
+ <!--
+<div id="header_loggedin" style="display:none;">
+    <h2 id="app_name">classSearch</h2>
     <p>Welcome, [username]!</p>
+    <button id="login" class="btn" onsubmit="loggedIn();">login</button>
 </div>
 -->
 
 <div id="div_list">
     <h2>Add Classes</h2>
     <input type="text" name="item" id="usrInput">
-    <button id="addBtn" class="btn">Add</button>
+    <button id="addBtn" class="btn">add</button>
 </div>
 <ul id="myUL">
  
