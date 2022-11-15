@@ -123,10 +123,16 @@ loginButton.addEventListener("click", logInFunction);
 
 //login function APPEARANCE ONLY
 function logInFunction() {
+    //document.getElementById("login_form").setAttribute("class", "loggedIn");
+    var ln = document.getElementById("login");
+
+    ln.setAttribute("class", "loginBtn");
+
+    document.getElementById("login_form").innerHTML = "Welcome! You are logged in.";
+    document.getElementById("login_form").appendChild(ln);
+
     document.getElementById("login_form").setAttribute("class", "loggedIn");
-    var ln = document.createElement("p");
-    ln.innerHTML = "Welcome, user!";
-    //document.getElementById("login").innerHTML = "logout";
+    
     //document.getElementById("header_bar").setAttribute("");
     if (document.getElementById("login").innerHTML == "logout") {
         document.getElementById("login").innerHTML = "login";
