@@ -114,8 +114,12 @@ var userInput = document.querySelector("#usrInput");
 var inputButton = document.querySelector("#addBtn");
 var inputList = document.querySelector("#myUL");
 
+var loginButton = document.getElementById("login");
+
 //add eventlistener
 inputButton.addEventListener("click", addList);
+
+loginButton.addEventListener("click", logInFunction);
 
 //login function APPEARANCE ONLY
 function logInFunction() {
